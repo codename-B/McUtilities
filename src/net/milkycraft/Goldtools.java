@@ -16,6 +16,9 @@ public class Goldtools extends JavaPlugin {
 	public void onEnable() {
 		final MyGoldListener goldListener = new MyGoldListener(this);
 		final MyBlockListener blockListener = new MyBlockListener();
+		MyGoldCommandExecutor myGoldExecutor;
+		 myGoldExecutor = new MyGoldCommandExecutor();
+	    getCommand("goldtools").setExecutor(myGoldExecutor);
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(goldListener, this);
 		pm.registerEvents(blockListener, this);
@@ -34,7 +37,6 @@ public class Goldtools extends JavaPlugin {
 		cfg.addDefault("disable.mine.ironblock", true);
 		cfg.addDefault("disable.mine.goldblock", true);
 		cfg.addDefault("disable.mine.lapisblock", true);
-		cfg.addDefault("disable.mine.cobweb", true);
 		cfg.options().copyDefaults(true);
 		saveConfig();
 	}

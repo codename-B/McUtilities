@@ -8,3 +8,5 @@ version: 1.3
 commands:
     gold:
       description: Convert tools to gold!
+    goldtools:
+      description: View info on this plugin
