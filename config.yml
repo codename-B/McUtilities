@@ -1,0 +1,22 @@
+# Gold tools configuration v1.3
+# The charge is what the player needs in there inventory in order to convert their tool
+# The item is the item id of the item needed to convert, its the "source" item.
+# The amount is how many of the items they need to convert.
+# The item is not taken after conversion attempts!
+# To disable this, simply set the item to 0 and the amount to 0.
+# 266 is a gold ingot, i suggest you keep the defaults unless you have other ideas :p
+# To disable the mining of the block below, change false to true.
+# The blocks at the bottom are instant mined and double damage is dealt to the pick.
+# The Iron and Gold blocks don't deal double damage to the gold pickaxe. 
+Source:
+  item: 266
+  amount: 10
+disable:
+  mine:
+    ironore: false
+    goldore: false
+    lapisore: false
+    redstoneore: false
+    ironblock: true
+    goldblock: true
+    lapisblock: true
