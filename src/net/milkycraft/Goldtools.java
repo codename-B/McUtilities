@@ -37,18 +37,19 @@ public class Goldtools extends JavaPlugin {
 		cfg.addDefault("disable.mine.ironblock", true);
 		cfg.addDefault("disable.mine.goldblock", true);
 		cfg.addDefault("disable.mine.lapisblock", true);
+		cfg.addDefault("mine.ore.tooldamage", 2);
 		cfg.options().copyDefaults(true);
 		saveConfig();
 	}
 	public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) { 
 		 final Enchantment SILK_TOUCH = new EnchantmentWrapper(33);
+   	  int itm = this.getConfig().getInt("Source.item");
+   	  int amt = this.getConfig().getInt("Source.amount");	
 	      if( !(sender instanceof Player) ){
 	          sender.sendMessage(ChatColor.RED + "[GoldTool] Sorry but the console cannot use these commands.");
 	          return true;
 	      } 
 	      if(commandLabel.equalsIgnoreCase("gold")) {
-	    	  int itm = this.getConfig().getInt("Charge.item");
-	    	  int amt = this.getConfig().getInt("Charge.amount");	
 			 if(((Player) sender).getInventory().getItemInHand().getType() == Material.WOOD_HOE
 					&& sender.hasPermission("goldtools.hoe") && ((Player) sender).getInventory().contains(itm, amt)) {
 						((Player) sender).getInventory().getItemInHand().setType(Material.GOLD_HOE);

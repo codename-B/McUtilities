@@ -11,8 +11,9 @@ public class MyGoldCommandExecutor implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) { 
 	      if(commandLabel.equalsIgnoreCase("goldtools") && sender.hasPermission("goldtools.info")){
 			sender.sendMessage(ChatColor.WHITE + "*************************************");
-			sender.sendMessage(ChatColor.GOLD + "GoldTools v1.3 by milkywayz loaded!");
-			sender.sendMessage(ChatColor.GOLD + "For bugs, go to bukkit dev project page");
+			sender.sendMessage(ChatColor.GOLD + "GoldTools v1.4 by milkywayz loaded!");
+			sender.sendMessage(ChatColor.GOLD + "Always check bukkit dev page for latest version");
+			sender.sendMessage(ChatColor.GOLD + "Sumbit requests on bukkit dev to have them added!");
 			sender.sendMessage(ChatColor.GOLD + "View source on github! github.com/milkywayz/GoldTools-");
 			sender.sendMessage(ChatColor.WHITE + "*************************************");
       	return true;	     	      
