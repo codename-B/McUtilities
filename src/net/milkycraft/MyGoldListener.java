@@ -38,6 +38,7 @@ public class MyGoldListener implements Listener {
 				boolean lapisb = plugin.getConfig().getBoolean(
 						"disable.mine.lapisblock");
 				int damage = plugin.getConfig().getInt("mine.ore.tooldamage");
+				int tdamage = plugin.getConfig().getInt("mine.precious.tooldamage");
 				if (e.getAction() == Action.LEFT_CLICK_BLOCK) {
 					if (e.getClickedBlock().getType() == Material.IRON_ORE) {
 						if (e.getPlayer().isDead() == iron) {
@@ -105,7 +106,7 @@ public class MyGoldListener implements Listener {
 							p.getItemInHand()
 									.setDurability(
 											(short) (p.getItemInHand()
-													.getDurability() + 1));
+													.getDurability() + tdamage));
 							if (e.getPlayer().getInventory().getItemInHand()
 									.getDurability() > 33) {
 								e.getPlayer().getInventory()
@@ -120,7 +121,7 @@ public class MyGoldListener implements Listener {
 							p.getItemInHand()
 									.setDurability(
 											(short) (p.getItemInHand()
-													.getDurability() + 1));
+													.getDurability() + tdamage));
 							if (e.getPlayer().getInventory().getItemInHand()
 									.getDurability() > 33) {
 								e.getPlayer().getInventory()
@@ -135,7 +136,7 @@ public class MyGoldListener implements Listener {
 							p.getItemInHand()
 									.setDurability(
 											(short) (p.getItemInHand()
-													.getDurability() + 1));
+													.getDurability() + tdamage));
 							if (e.getPlayer().getInventory().getItemInHand()
 									.getDurability() > 33) {
 								e.getPlayer().getInventory()
@@ -144,8 +145,8 @@ public class MyGoldListener implements Listener {
 							}
 						}
 					}
-				}
 			}
+		}
 		}
 	}
 }

@@ -38,6 +38,7 @@ public class Goldtools extends JavaPlugin {
 		cfg.addDefault("disable.mine.goldblock", true);
 		cfg.addDefault("disable.mine.lapisblock", true);
 		cfg.addDefault("mine.ore.tooldamage", 2);
+		cfg.addDefault("mine.precious.tooldamage", 2);
 		cfg.options().copyDefaults(true);
 		saveConfig();
 	}
@@ -89,14 +90,14 @@ public class Goldtools extends JavaPlugin {
 							&& sender.hasPermission("goldtools.silk")) {
 						((Player ) sender).getItemInHand().addEnchantment(SILK_TOUCH, 1);
 						 sender.sendMessage(ChatColor.GOLD + "[GoldTools]" + ChatColor.AQUA + 
-								 "Silk touch added to golden pickaxe!");	
+								 "Silk touch successfully added to golden pickaxe!");	
 						return true;
 					}
 					if(((Player) sender).getInventory().getItemInHand().getType() == Material.GOLD_AXE
 							&& sender.hasPermission("goldtools.silk")) {
 						((Player ) sender).getItemInHand().addEnchantment(SILK_TOUCH, 1);
 						 sender.sendMessage(ChatColor.GOLD + "[GoldTools]" + ChatColor.AQUA + 
-								 "Silk touch added to golden axe!");	
+								 "Silk touch successfully added to golden axe!");	
 						return true;	
 	      } else {
 		 sender.sendMessage(ChatColor.GOLD + "[GoldTools]" + ChatColor.DARK_RED + "Could not complete specific action!");		
@@ -105,9 +106,11 @@ public class Goldtools extends JavaPlugin {
 		}   
 		return false;
 	}
-@Override
-public void onDisable() {
-Logger log = Logger.getLogger("Minecraft");
-{
-	log.info("GoldTools disabled");
-}}}
+			@Override
+			public void onDisable() {
+				Logger log = Logger.getLogger("Minecraft");
+				{
+					log.info("GoldTools disabled");
+				}
+			}
+}

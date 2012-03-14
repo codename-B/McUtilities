@@ -1,4 +1,4 @@
-# Gold tools configuration v1.4
+# Gold tools configuration v1.5
 # The source is what the player needs in there inventory in order to convert their tool
 # The item is the item id of the item needed to convert, its the "source" item.
 # The amount is how many of the items they need to convert.
@@ -9,6 +9,8 @@
 # Tool damage is the damage dealt to a gold pick when a player instant mines a ore 
 # Tool damage must be at least 1 or the pick would not die if you only mined ores
 # For more help on configuration, visit the bukkit dev page.
+# ore = lapis, gold, iron, or redstone ore.
+# precious = gold, iron, lapis blocks. 
 Source:
   item: 266
   amount: 10
@@ -23,4 +25,6 @@ disable:
     lapisblock: true
 mine:
   ore:
+    tooldamage: 2
+  precious:
     tooldamage: 2
