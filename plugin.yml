@@ -1,9 +1,9 @@
 name: GoldTools
 author: milkywayz 
 main: net.milkycraft.Goldtools
-description: Convert wood tools to gold easily!
+description: Golden tools re imagined!
 website: http://milkycraft.net
-version: 1.5
+version: 1.6
 
 commands:
     gold:

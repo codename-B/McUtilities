@@ -1,4 +1,4 @@
-# Gold tools configuration v1.5
+# Gold tools configuration v1.6 
 # The source is what the player needs in there inventory in order to convert their tool
 # The item is the item id of the item needed to convert, its the "source" item.
 # The amount is how many of the items they need to convert.

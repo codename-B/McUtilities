@@ -5,13 +5,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentWrapper;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
-public class Goldtools extends JavaPlugin {
+public class Goldtools extends PluginWrapper {
+	private Configuration config;
 	@Override
 	public void onEnable() {
 		final MyGoldListener goldListener = new MyGoldListener(this);
@@ -23,24 +22,11 @@ public class Goldtools extends JavaPlugin {
 		pm.registerEvents(goldListener, this);
 		pm.registerEvents(blockListener, this);
 		saveConfig();
-		FileConfiguration cfg = this.getConfig();
-		cfg = getConfig();
-		this.getConfig();
+		config = new Configuration(this);
+		config.create();
+		config.reload();
 		this.getServer().getPluginManager();
 		this.getDescription();
-		cfg.addDefault("Source.item", 266);
-		cfg.addDefault("Source.amount", 10);
-		cfg.addDefault("disable.mine.ironore", false);
-		cfg.addDefault("disable.mine.goldore", false);
-		cfg.addDefault("disable.mine.lapisore", false);
-		cfg.addDefault("disable.mine.redstoneore", false);
-		cfg.addDefault("disable.mine.ironblock", true);
-		cfg.addDefault("disable.mine.goldblock", true);
-		cfg.addDefault("disable.mine.lapisblock", true);
-		cfg.addDefault("mine.ore.tooldamage", 2);
-		cfg.addDefault("mine.precious.tooldamage", 2);
-		cfg.options().copyDefaults(true);
-		saveConfig();
 	}
 	public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) { 
 		 final Enchantment SILK_TOUCH = new EnchantmentWrapper(33);
@@ -69,7 +55,7 @@ public class Goldtools extends JavaPlugin {
 					&& sender.hasPermission("goldtools.sword") && ((Player) sender).getInventory().contains(itm, amt)) {
 						((Player) sender).getInventory().getItemInHand().setType(Material.GOLD_SWORD);
 ;						sender.sendMessage(ChatColor.GOLD + "[GoldTools]" + ChatColor.AQUA + 
-							"Sucessfully onverted wood sword to gold sword!");
+							"Sucessfully converted wood sword to gold sword!");
 							return true;	
 							}
 			 if(((Player) sender).getInventory().getItemInHand().getType() == Material.WOOD_AXE 
@@ -103,6 +89,7 @@ public class Goldtools extends JavaPlugin {
 		 sender.sendMessage(ChatColor.GOLD + "[GoldTools]" + ChatColor.DARK_RED + "Could not complete specific action!");		
 		 return false;
 	  		}
+					
 		}   
 		return false;
 	}
@@ -113,4 +100,7 @@ public class Goldtools extends JavaPlugin {
 					log.info("GoldTools disabled");
 				}
 			}
+				public Configuration config(){
+					return config;
+				}			
 }
