@@ -3,10 +3,11 @@ author: milkywayz
 main: net.milkycraft.Goldtools
 description: Golden tools re imagined!
 website: http://milkycraft.net
-version: 1.6
+version: 1.7
 
 commands:
     gold:
       description: Convert tools to gold!
     goldtools:
       description: View info on this plugin
+      aliases: gt 

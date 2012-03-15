@@ -1,6 +1,7 @@
 package net.milkycraft;
 
 import java.util.logging.Logger;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -9,14 +10,15 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentWrapper;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
+
 public class Goldtools extends PluginWrapper {
 	private Configuration config;
 	@Override
 	public void onEnable() {
 		final MyGoldListener goldListener = new MyGoldListener(this);
-		final MyBlockListener blockListener = new MyBlockListener();
+		final MyBlockListener blockListener = new MyBlockListener(this);
 		MyGoldCommandExecutor myGoldExecutor;
-		 myGoldExecutor = new MyGoldCommandExecutor();
+		 myGoldExecutor = new MyGoldCommandExecutor(this);
 	    getCommand("goldtools").setExecutor(myGoldExecutor);
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(goldListener, this);
@@ -26,9 +28,9 @@ public class Goldtools extends PluginWrapper {
 		config.create();
 		config.reload();
 		this.getServer().getPluginManager();
-		this.getDescription();
+		this.getDescription();		
 	}
-	public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) { 
+	    public boolean onCommand(CommandSender sender, Command command, String commandLabel, String[] args) { 
 		 final Enchantment SILK_TOUCH = new EnchantmentWrapper(33);
    	  int itm = this.getConfig().getInt("Source.item");
    	  int amt = this.getConfig().getInt("Source.amount");	
@@ -102,5 +104,5 @@ public class Goldtools extends PluginWrapper {
 			}
 				public Configuration config(){
 					return config;
-				}			
+				}	
 }

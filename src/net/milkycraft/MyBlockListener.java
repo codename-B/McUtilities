@@ -10,12 +10,17 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class MyBlockListener implements Listener {
-	public void onBlockBreak(BlockBreakEvent ev) {
+	Goldtools plugin;
+	public MyBlockListener(Goldtools instance) {
+		plugin = instance;
+	}
+	public void onBlockBreak(BlockBreakEvent ev) {	
+		
 		Block block = ev.getBlock();
-		World world = block.getWorld();
 		Location loc = block.getLocation();
 		BlockState bs = block.getState();
-		ItemStack goldpick = new ItemStack(285);
+		World world = block.getWorld();
+		ItemStack goldpick = new ItemStack(285);		
 		if (ev.getPlayer().getItemInHand() == goldpick) {
 			if (ev.getPlayer().hasPermission("goldtools.drop")) {
 				if (block.getType() == Material.IRON_ORE) {
@@ -53,7 +58,7 @@ public class MyBlockListener implements Listener {
 							bs.getRawData(), bs.getRawData()));
 					return;
 				}
-			}
-		}
-	}
+				}
+				}
+			}		
 }

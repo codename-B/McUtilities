@@ -11,11 +11,10 @@ public class Configuration {
 		plugin.getConfig().loadDefaults(plugin.getResource("config.yml"));
 		if(!plugin.getConfig().fileExists() || !plugin.getConfig().checkDefaults()){
 			plugin.getConfig().saveDefaults();
-		}
+		} 
 		load();
 	}
-
-	public void reload(){ 	    
+	public void reload(){         		
 		load();
 	}
 
