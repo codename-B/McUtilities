@@ -1,9 +1,12 @@
-package net.milkycraft;
+package net.milkycraft.Configuration;
 
 import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+
+
+
 import org.bukkit.configuration.MemoryConfiguration;
 import org.bukkit.plugin.Plugin;
 /*

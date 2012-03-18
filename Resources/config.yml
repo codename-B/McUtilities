@@ -19,25 +19,4 @@ mine:
   ore:
     tooldamage: 2
   precious:
-    tooldamage: 2 instant mines a ore 
-# Tool damage must be at least 1 or the pick would not die if you only mined ores
-# For more help on configuration, visit the bukkit dev page.
-# ore = lapis, gold, iron, or redstone ore.
-# precious = gold, iron, lapis blocks. 
-Source:
-  item: 266
-  amount: 10
-disable:
-  mine:
-    ironore: false
-    goldore: false
-    lapisore: false
-    redstoneore: false
-    ironblock: true
-    goldblock: true
-    lapisblock: true
-mine:
-  ore:
     tooldamage: 2
-  precious:
-    tooldamage: 22

@@ -2,6 +2,12 @@ package net.milkycraft;
 
 import java.util.logging.Logger;
 
+import net.milkycraft.CommandHandlers.MyGoldCommandExecutor;
+import net.milkycraft.CommandHandlers.MyGoldyCommandExecutor;
+import net.milkycraft.Configuration.Configuration;
+import net.milkycraft.Listeners.MyBlockListener;
+import net.milkycraft.Listeners.MyGoldListener;
+import net.milkycraft.Listeners.MyPsListener;
 import net.sacredlabyrinth.Phaed.PreciousStones.PreciousStones;
 
 import org.bukkit.Bukkit;

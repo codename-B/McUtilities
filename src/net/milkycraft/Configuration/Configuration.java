@@ -1,4 +1,6 @@
-package net.milkycraft;
+package net.milkycraft.Configuration;
+
+import net.milkycraft.Goldtools;
 
 public class Configuration {
 	private Goldtools plugin;

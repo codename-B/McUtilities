@@ -1,4 +1,6 @@
-package net.milkycraft;
+package net.milkycraft.CommandHandlers;
+
+import net.milkycraft.Goldtools;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

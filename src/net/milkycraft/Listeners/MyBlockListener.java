@@ -1,4 +1,6 @@
-package net.milkycraft;
+package net.milkycraft.Listeners;
+
+import net.milkycraft.Goldtools;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

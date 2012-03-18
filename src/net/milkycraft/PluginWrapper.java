@@ -1,5 +1,7 @@
 package net.milkycraft;
 
+import net.milkycraft.Configuration.GoldConfiguration;
+
 public class PluginWrapper extends org.bukkit.plugin.java.JavaPlugin {
     private GoldConfiguration config;
 
