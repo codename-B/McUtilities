@@ -1,12 +1,25 @@
-# Gold tools configuration v1.7
-# The source is what the player needs in there inventory in order to convert their tool
-# The item is the item id of the item needed to convert, its the "source" item.
-# The amount is how many of the items they need to convert.
-# The item is not taken after conversion attempts, probably make it hard to get.
-# To disable this, simply set the item to 0 and the amount to 0.
-# Default source is 10 gold ingots. Change it to whatever you like.
-# To disable the mining of the block below, change false to true.
-# Tool damage is the damage dealt to a gold pick when a player instant mines a ore 
+# Gold tools configuration v1.9
+# source is the item you need in your inventory to use /gold , set amount to 0 to disable.
+# You can disable the mining of some blocks if you want
+# You can set the damage that goes to the pickaxe when they mine ore or precious blocks
+# If you have any questions, visit http://dev.bukkit.org/server-mods/goldtools/
+source:
+  item: 266
+  amount: 10
+disable:
+  mine:
+    ironore: false
+    goldore: false
+    lapisore: false
+    redstoneore: false
+    ironblock: false
+    goldblock: false
+    lapisblock: false
+mine:
+  ore:
+    tooldamage: 2
+  precious:
+    tooldamage: 2 instant mines a ore 
 # Tool damage must be at least 1 or the pick would not die if you only mined ores
 # For more help on configuration, visit the bukkit dev page.
 # ore = lapis, gold, iron, or redstone ore.

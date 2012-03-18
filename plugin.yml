@@ -3,7 +3,7 @@ author: milkywayz
 main: net.milkycraft.Goldtools
 description: Golden tools re imagined!
 website: http://milkycraft.net
-version: 1.7
+version: 1.9
 
 commands:
     gold:

@@ -1,7 +1,6 @@
 package net.milkycraft;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -9,14 +8,10 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.plugin.Plugin;
 
-import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
-
-public class MyGoldListener implements Listener {
-	final WorldGuardPlugin worldGuard = getWorldGuard();
+public class MyPsListener implements Listener {
 	Goldtools plugin;
-	public MyGoldListener(Goldtools instance) {
+	public MyPsListener(Goldtools instance) {
 		plugin = instance;
 	}
 	@EventHandler(priority = EventPriority.HIGH)
@@ -30,9 +25,7 @@ public class MyGoldListener implements Listener {
 				int damage = plugin.getConfig().getInt("mine.ore.tooldamage");
 				int tdamage = plugin.getConfig().getInt("mine.precious.tooldamage");
 				if (e.getAction() == Action.LEFT_CLICK_BLOCK) {
-					Location loc = e.getClickedBlock().getLocation();
-					if( Bukkit.getServer().getPluginManager().getPlugin("WorldGuard") != null) {						
-						if(p.hasPermission("goodtools.worldguard.bypass") || worldGuard.canBuild(p, loc) ) {							
+					if( Bukkit.getServer().getPluginManager().getPlugin("WorldGuard") == null) {
 					if (e.getClickedBlock().getType() == Material.IRON_ORE) {
 						if (!plugin.getConfig().getBoolean("disable.mine.ironore")) {
 							e.getClickedBlock().breakNaturally();
@@ -144,13 +137,4 @@ public class MyGoldListener implements Listener {
 			}
 		}
 	}
-	public WorldGuardPlugin getWorldGuard() {
-	    Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("WorldGuard");	 
-	    // WorldGuard may not be loaded
-	    if (plugin == null || !(plugin instanceof WorldGuardPlugin)) {
-	       return null;
-	    }	 
-	    return (WorldGuardPlugin) plugin;
-	}}
-
 
