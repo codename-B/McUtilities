@@ -1,17 +1,17 @@
 # Gold tools configuration v2.0
-# source is the item you need in your inventory to use /gold , set amount to 0 to disable.
-# You can disable the mining of some blocks if you want
-# You can set the damage that goes to the pickaxe when they mine ore or precious blocks
-# You can allow custom drops for blocks mined with gold picks, axes, or shovels
-# All the custom drops are set to there default drop, you can change to any item id.
-# You can set the time the player must wait in between instant mine breaks with the gold pick. Note instant mine is only on the ores and precious blocks.
+# Economy uses Vault, if vault isnt installed then /gold doesn't have a charge.
+# Mine cool down is time a player needs to wait after breaking a ore or precious block with a gold pick, unless they have permission
+# You can block the mine of ores and precious blocks with a gold pick if you like just set the disable mine for the block to true and players without permission can't mine it.
+# You can customize the damage the pick receives when players mine ores or precious blocks since when they mine them its instantmine.. So maybe extra damage is good
 # If you have any questions, visit http://dev.bukkit.org/server-mods/goldtools/
-source:
-  item: 266
-  amount: 10
-Instantmine:
+Economy:
+  gold:
+    charge: 50
+  silk:
+    charge: 100
+mine:
   cooldown:
-    seconds: 3 
+    seconds: 1
 disable:
   mine:
     ironore: false
@@ -23,7 +23,7 @@ disable:
     lapisblock: true
 mine:
   ore:
-    tooldamage: 2
+    tooldamage: 1
   precious:
     tooldamage: 2
 
