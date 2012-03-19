@@ -1,7 +1,5 @@
 package net.milkycraft.Configuration;
 
-
-
 import org.bukkit.configuration.file.YamlConfigurationOptions;
 
 public class GoldConfigurationOptions extends YamlConfigurationOptions {
