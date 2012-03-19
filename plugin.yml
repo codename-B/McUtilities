@@ -1,9 +1,11 @@
-name: GoldTools
-author: milkywayz 
-main: net.milkycraft.Goldtools
-description: Golden tools re imagined!
-website: http://milkycraft.net
+name: Goldtools
 version: 2.0
+description: Golden tools re imagined!
+author: milkywayz 
+website: http://milkycraft.net
+
+main: net.milkycraft.Goldtools
+softdepend: [WorldGuard, Vault, LogBlock]
 
 commands:
     gold:
