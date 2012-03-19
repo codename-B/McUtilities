@@ -6,7 +6,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-
+/*
+ * This class does the following:
+ * - Handles the /gt command
+ * - Performs "plugin" actions such as reload and help
+ */
 public class MyGoldCommandExecutor implements CommandExecutor {
 	Goldtools plugin;
 	public MyGoldCommandExecutor(Goldtools instance) {
