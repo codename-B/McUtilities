@@ -7,9 +7,7 @@ import java.util.Map;
 
 import org.bukkit.configuration.MemoryConfiguration;
 import org.bukkit.plugin.Plugin;
-/*
- * This config was made with lots of help from the antishare source code. Thanks to fieldmaster!
- */
+
 public class GoldConfiguration extends org.bukkit.configuration.file.YamlConfiguration {
 	private final File file;
 	private final Plugin plugin;
