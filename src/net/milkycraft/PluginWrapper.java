@@ -7,6 +7,7 @@ public class PluginWrapper extends org.bukkit.plugin.java.JavaPlugin {
 
     public GoldConfiguration getConfig() {
         if(config == null) {
+        	System.err.println("[GoldTools] Config not found, generating a new one");
             config = new GoldConfiguration(this);
         }
         return config;

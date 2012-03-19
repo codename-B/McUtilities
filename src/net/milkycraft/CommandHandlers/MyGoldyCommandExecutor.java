@@ -11,7 +11,7 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentWrapper;
 import org.bukkit.entity.Player;
 
-public class MyGoldyCommandExecutor implements CommandExecutor{
+public class MyGoldyCommandExecutor implements CommandExecutor {
 	Goldtools plugin;
 	public MyGoldyCommandExecutor(Goldtools instance) {
 		plugin = instance;
@@ -24,7 +24,7 @@ public class MyGoldyCommandExecutor implements CommandExecutor{
 	          sender.sendMessage(ChatColor.RED + "[GoldTool] Sorry but the console cannot use these commands.");
 	          return true;
 	      } 
-	      if(commandLabel.equalsIgnoreCase("gold")) {
+	      if(commandLabel.equalsIgnoreCase("gold") ) {	    	     	      
 			 if(((Player) sender).getInventory().getItemInHand().getType() == Material.WOOD_HOE
 					&& sender.hasPermission("goldtools.hoe") && ((Player) sender).getInventory().contains(itm, amt)) {
 						((Player) sender).getInventory().getItemInHand().setType(Material.GOLD_HOE);
@@ -42,7 +42,7 @@ public class MyGoldyCommandExecutor implements CommandExecutor{
 			if(((Player) sender).getInventory().getItemInHand().getType() == Material.WOOD_SWORD
 					&& sender.hasPermission("goldtools.sword") && ((Player) sender).getInventory().contains(itm, amt)) {
 						((Player) sender).getInventory().getItemInHand().setType(Material.GOLD_SWORD);
-;						sender.sendMessage(ChatColor.GOLD + "[GoldTools]" + ChatColor.AQUA + 
+						sender.sendMessage(ChatColor.GOLD + "[GoldTools]" + ChatColor.AQUA + 
 							"Sucessfully converted wood sword to gold sword!");
 							return true;	
 							}
@@ -64,7 +64,7 @@ public class MyGoldyCommandExecutor implements CommandExecutor{
 							&& sender.hasPermission("goldtools.silk")) {
 						((Player ) sender).getItemInHand().addEnchantment(SILK_TOUCH, 1);
 						 sender.sendMessage(ChatColor.GOLD + "[GoldTools]" + ChatColor.AQUA + 
-								 "Silk touch successfully added to golden pickaxe!");	
+								 "Silk touch successfully added to golden pickaxe!");
 						return true;
 					}
 					if(((Player) sender).getInventory().getItemInHand().getType() == Material.GOLD_AXE
@@ -77,8 +77,7 @@ public class MyGoldyCommandExecutor implements CommandExecutor{
 		 sender.sendMessage(ChatColor.GOLD + "[GoldTools]" + ChatColor.DARK_RED + "Could not complete specific action!");		
 		 return false;
 	  		}
-					
-		}   
-		return false;
-	}
+	      }
+			return false;
+	}				
 }

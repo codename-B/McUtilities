@@ -8,15 +8,14 @@ import net.milkycraft.Configuration.Configuration;
 import net.milkycraft.Listeners.MyBlockListener;
 import net.milkycraft.Listeners.MyGoldListener;
 import net.milkycraft.Listeners.MyPsListener;
-import net.sacredlabyrinth.Phaed.PreciousStones.PreciousStones;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
 public class Goldtools extends PluginWrapper {
 	private Configuration config;
-	public PreciousStones ps;
+	public Plugin worldguard;
+	public static Logger log = Logger.getLogger("Minecraft");
 	@Override
 	public void onEnable() {
 		final MyGoldListener goldListener = new MyGoldListener(this);
@@ -38,20 +37,25 @@ public class Goldtools extends PluginWrapper {
 		config.reload();
 		this.getServer().getPluginManager();
 		this.getDescription();	
-		 Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("WorldGuard");
-		    if (plugin == null ) {
-		    	System.err.println("[GoldTools] Worldguard not detected, gold tool mining allowed globally ");
-		       return;
-		    }	 
+		if (!getWorldGuard()) {
+			log.severe("[Goldtools] WorldGuard was not detected!");
+			return;
+		}
 		}	
 			@Override
 			public void onDisable() {
-				Logger log = Logger.getLogger("Minecraft");
 				{
 					log.info("GoldTools disabled");
 				}
 			}
 				public Configuration config(){
 					return config;
-				}					
+				}
+				private boolean getWorldGuard() {
+				    Plugin plugin = getServer().getPluginManager().getPlugin("WorldGuard");
+				    if(plugin != null) {
+				    	System.out.println("[Goldtools] Hooked into Worldguard!");
+				    }
+				    return (worldguard !=null);
+				}
 }

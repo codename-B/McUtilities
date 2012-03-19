@@ -30,7 +30,7 @@ public class MyGoldCommandExecutor implements CommandExecutor {
 	      if(args[0].equalsIgnoreCase("help")) { 	  
 			sender.sendMessage(ChatColor.RED +	" GoldTools help page");
 			sender.sendMessage(ChatColor.GOLD + " /gold - will convert wood tool to gold");;
-			sender.sendMessage(ChatColor.GOLD + " /gt perms - A list of the nodes");
+			sender.sendMessage(ChatColor.GOLD + " /gt - Info on the plugin");
 			sender.sendMessage(ChatColor.GOLD + " /gt reload - Reloads config from disk");
 			sender.sendMessage(ChatColor.GREEN + " If you have any more questions, ask on bukkitdev!");
 			return true;
