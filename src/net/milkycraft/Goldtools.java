@@ -86,7 +86,7 @@ public class Goldtools extends PluginWrapper {
 			lbconsumer = ((LogBlock)logBlockPlugin).getConsumer();
 	        log.info("[Goldtools] Hooked into LogBlock!");
 		} else {
-			log.warning("[Goldtools] Failed to load LogBlock");
+			log.warning("[Goldtools] Couldnt hook into LogBlock");
 		}
 	}
 	private boolean setupEconomy() {
@@ -118,7 +118,7 @@ public class Goldtools extends PluginWrapper {
 	public boolean queueBlockBreak(String playerName, Block block)
 	{
 		if (block == null) {
-			log.warning("Queueblockbreak: block is null - this should not happen!");			
+			log.warning("GoldTools Encoutered a logblock error! Report this!");			
 			return false;
 		}
 		if (lbconsumer != null) {
