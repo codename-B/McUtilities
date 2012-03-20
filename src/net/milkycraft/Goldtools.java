@@ -127,7 +127,7 @@ public class Goldtools extends PluginWrapper {
 		}
 		return true;
 	}
-				public Configuration config(){
-					return config;
-				}
+	public Configuration config(){
+		return config;
+	}
 }
