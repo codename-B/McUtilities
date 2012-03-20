@@ -40,34 +40,43 @@ public class MyBlockListener implements Listener {
 				if (ev.getPlayer().hasPermission("goldtools.drop")) {
 					switch (mat) {
 					case IRON_ORE:
-						drop(world, loc, bs);
+						world.dropItemNaturally(loc,
+								new ItemStack(bs.getType(), 1, bs.getRawData(),
+										bs.getRawData()));
 						break;
 					case GOLD_ORE:
-						drop(world, loc, bs);
+						world.dropItemNaturally(loc,
+								new ItemStack(bs.getType(), 1, bs.getRawData(),
+										bs.getRawData()));
 						break;
 					case LAPIS_ORE:
-						drop(world, loc, bs);
+						world.dropItemNaturally(loc,
+								new ItemStack(bs.getType(), 1, bs.getRawData(),
+										bs.getRawData()));
 						break;
 					case REDSTONE_ORE:
-						drop(world, loc, bs);
+						world.dropItemNaturally(loc,
+								new ItemStack(bs.getType(), 1, bs.getRawData(),
+										bs.getRawData()));
 						break;
 					case GOLD_BLOCK:
-						drop(world, loc, bs);
+						world.dropItemNaturally(loc,
+								new ItemStack(bs.getType(), 1, bs.getRawData(),
+										bs.getRawData()));
 						break;
 					case IRON_BLOCK:
-						drop(world, loc, bs);
+						world.dropItemNaturally(loc,
+								new ItemStack(bs.getType(), 1, bs.getRawData(),
+										bs.getRawData()));
 						break;
 					case LAPIS_BLOCK:
-						drop(world, loc, bs);
+						world.dropItemNaturally(loc,
+								new ItemStack(bs.getType(), 1, bs.getRawData(),
+										bs.getRawData()));
 						break;
 					}
 				}
 			}
 		}
-	}
-	public void drop(World world, Location loc, BlockState bs) {
-		world.dropItemNaturally(loc,
-				new ItemStack(bs.getType(), 1, bs.getRawData(),
-						bs.getRawData()));
-	}
+	}	
 }
