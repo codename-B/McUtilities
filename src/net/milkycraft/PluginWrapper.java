@@ -5,7 +5,11 @@ import net.milkycraft.Configuration.GoldConfiguration;
  * This class wraps JavaPlugin
  */
 public class PluginWrapper extends org.bukkit.plugin.java.JavaPlugin {
+<<<<<<< HEAD
     
+=======
+	
+>>>>>>> Added spaces
     private GoldConfiguration config;
 
     public GoldConfiguration getConfig() {
@@ -15,14 +19,17 @@ public class PluginWrapper extends org.bukkit.plugin.java.JavaPlugin {
         }
         return config;
     }
+    
     public void reloadConfig() {
         
         getConfig().load();
     }
+    
     public void saveConfig() {
         
         getConfig().save();
     }
+    
     public void saveDefaultConfig() {
         
         getConfig().saveDefaults();
