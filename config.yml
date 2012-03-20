@@ -10,6 +10,10 @@ Economy:
   silk:
     charge: 100
 mine:
+  ore:
+    tooldamage: 1
+  precious:
+    tooldamage: 2
   cooldown:
     seconds: 1
 disable:
@@ -21,9 +25,5 @@ disable:
     ironblock: false
     goldblock: false
     lapisblock: true
-mine:
-  ore:
-    tooldamage: 1
-  precious:
-    tooldamage: 2
+
 
