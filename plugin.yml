@@ -1,5 +1,5 @@
 name: Goldtools
-version: 2.0
+version: 2.1
 description: Golden tools re imagined!
 author: milkywayz 
 website: http://milkycraft.net
@@ -8,8 +8,7 @@ main: net.milkycraft.Goldtools
 softdepend: [WorldGuard, Vault, LogBlock]
 
 commands:
-    gold:
-      description: Convert tools to gold!
     goldtools:
       description: View info on this plugin
+      aliases: gt ription: View info on this plugin
       aliases: gt 

@@ -1,17 +1,13 @@
-/*
- * This plugin was made by milkywayz
- * Version 2.0 3/19/12
- */
 package net.milkycraft;
 
 import java.util.logging.Logger;
 
 import net.milkbowl.vault.economy.Economy;
 import net.milkycraft.CommandHandlers.MyGoldCommandExecutor;
-import net.milkycraft.CommandHandlers.MyGoldyCommandExecutor;
 import net.milkycraft.Configuration.Configuration;
 import net.milkycraft.Listeners.MyBlockListener;
 import net.milkycraft.Listeners.MyGoldListener;
+import net.milkycraft.Listeners.NonWgListener;
 
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
@@ -29,6 +25,7 @@ import de.diddiz.LogBlock.LogBlock;
  * Handles Registration of listeners and executors
  */
 public class Goldtools extends PluginWrapper {
+	public static boolean DEBUG_MODE = false;
 	private Configuration config;
 	public static WorldGuardPlugin worldguardPlugin = null;
 	public static Consumer lbconsumer = null;
@@ -40,17 +37,16 @@ public class Goldtools extends PluginWrapper {
 		//variables
 		PluginManager pm = getServer().getPluginManager();
 		//listeners
+		final NonWgListener wgListener = new NonWgListener(this);
 		final MyGoldListener goldListener = new MyGoldListener(this);
 		final MyBlockListener blockListener = new MyBlockListener();
 		pm.registerEvents(goldListener, this);
 		pm.registerEvents(blockListener, this);	
+		pm.registerEvents(wgListener, this);	
 		//executors
 		MyGoldCommandExecutor myGoldExecutor;
 		 myGoldExecutor = new MyGoldCommandExecutor(this);
-	    getCommand("goldtools").setExecutor(myGoldExecutor);
-	    MyGoldyCommandExecutor myGoldyExecutor;
-	    myGoldyExecutor = new MyGoldyCommandExecutor(this);
-	    getCommand("gold").setExecutor(myGoldyExecutor);					
+	    getCommand("goldtools").setExecutor(myGoldExecutor);				
 		//configuration
 		config = new Configuration(this);
 		config.create();
@@ -127,7 +123,7 @@ public class Goldtools extends PluginWrapper {
 		}
 		return true;
 	}
-	public Configuration config(){
-		return config;
-	}
+				public Configuration config(){
+					return config;
+				}
 }
