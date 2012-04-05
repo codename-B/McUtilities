@@ -1,28 +1,3 @@
-# Gold tools configuration v2.2
-# Economy uses Vault, if vault isnt installed then /gold doesn't have a charge.
-# Mine cool down is time a player needs to wait after breaking a ore or precious block with a gold pick, unless they have permission
-# You can block the mine of ores and precious blocks with a gold pick if you like just set the disable mine for the block to true and players without permission can't mine it.
-# You can customize the damage the pick receives when players mine ores or precious blocks since when they mine them its instantmine.. So maybe extra damage is good
-# If you have any questions, visit http://dev.bukkit.org/server-mods/goldtools/
-Worldguard: false
-Economy:
-  gold:
-    charge: 50
-  silk:
-    charge: 100
-mine:
-  ore:
-    tooldamage: 1
-  precious:
-    tooldamage: 2
-  cooldown:
-    seconds: 1
-disable:
-  mine:
-    ironore: false
-    goldore: false
-    lapisore: false
-    redstoneore: false
-    ironblock: false
-    goldblock: false
-    lapisblock: true
+# McLevelUp Configuration
+# Currently there is nothing to configure
+# Nor are the configuration classes implemented yet, if there is something you would like to customize in this plugin. Please suggest on the bukkit dev project page. thanks

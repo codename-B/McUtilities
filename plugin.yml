@@ -1,14 +1,7 @@
-name: Goldtools
-version: 2.1
-description: Golden tools re imagined!
+name: McLevelUp
 author: milkywayz 
+main: net.milkycraft.McLevelUp
+description: Sign based mcmmo xp shops
 website: http://milkycraft.net
-
-main: net.milkycraft.Goldtools
-softdepend: [WorldGuard, Vault, LogBlock]
-
-commands:
-    goldtools:
-      description: View info on this plugin
-      aliases: gt ription: View info on this plugin
-      aliases: gt 
+version: 1.0
+depend: [mcMMO, Vault]
