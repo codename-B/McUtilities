@@ -1,7 +1,7 @@
-name: McLevelUp
+name: McUtilities
 author: milkywayz 
 main: net.milkycraft.McLevelUp
-description: Sign based mcmmo xp shops
+description: McMMO utility signs
 website: http://milkycraft.net
-version: 1.0
+version: 1.2
 depend: [mcMMO, Vault]
