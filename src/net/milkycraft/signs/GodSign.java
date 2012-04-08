@@ -27,17 +27,20 @@ public class GodSign implements Listener {
 						|| p.hasPermission("mcutils.create.*")) {		
 					if (e.getLine(1).isEmpty()) {
 						p.sendMessage(ChatColor.RED
-								+ " Line 2 should be the time godmode lasts");
+								+ " Line 2 should be the godmode duration");
 					}
+					
 					if (e.getLine(2).isEmpty()) {
 						p.sendMessage(ChatColor.RED
-								+ " Line 3 should be the a price");
+								+ " Line 3 should be the a price ");
 					}
 					if (!e.getLine(1).isEmpty() && !e.getLine(2).isEmpty()) {
 						p.sendMessage(ChatColor.GREEN
 								+ " Sucessfully created a temp god sign");
-						e.setLine(0, line);
+						e.setLine(0, "[McGod]");
 						return;
+					} else {
+						p.sendMessage(ChatColor.RED + "Failed to create a temp god sign");
 					}
 				} else {
 					e.setLine(0, "&4Sorry but you");
@@ -46,7 +49,7 @@ public class GodSign implements Listener {
 					e.getPlayer()
 					.sendMessage(
 							ChatColor.RED 
-									+ " You do not have permission to create" + line + " signs");
+									+ " You do not have permission to create [McGod] signs");
 					return;
 				}
 			}
