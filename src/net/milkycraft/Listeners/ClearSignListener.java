@@ -46,7 +46,7 @@ public class ClearSignListener implements Listener {
 						mcMMO.getPlayerProfile(player).resetAllData();
 						mcMMO.getPlayerProfile(player).save();
 						player.sendMessage(ChatColor.GREEN
-								+ "Reset all of your mcMMO data!");
+								+ "Reset all of your mcMMO skills!");
 						return;
 					} else {
 						e.setCancelled(true);
