@@ -1,5 +1,6 @@
 package net.milkycraft;
 
+import java.io.IOException;
 import java.util.logging.Logger;
 
 import net.milkbowl.vault.economy.Economy;
@@ -9,6 +10,7 @@ import net.milkycraft.Listeners.ClearSignListener;
 import net.milkycraft.Listeners.GodSignListener;
 import net.milkycraft.Listeners.SignBreakListener;
 import net.milkycraft.Listeners.XpSignListener;
+import net.milkycraft.metrics.Metrics;
 import net.milkycraft.signs.ClearSign;
 import net.milkycraft.signs.CoolDownSign;
 import net.milkycraft.signs.GodSign;
@@ -45,7 +47,14 @@ public class McLevelUp extends Wrapper {
 		getServer().getPluginManager().registerEvents(clearsignListener, this);
 		getServer().getPluginManager().registerEvents(cleardownListener, this);
 		getServer().getPluginManager().registerEvents(interactListener, this);
-		log.info("McUtilities Loaded!");
+		Metrics metrics;
+		try {
+			metrics = new Metrics(this);
+			metrics.beginMeasuringPlugin(this);
+		} catch (IOException e) {
+			writeLog(e.getMessage());
+		}		
+		writeLog("[MCU]Metrics loaded!");
 }
 @Override
 public void onDisable() {
@@ -98,5 +107,7 @@ private void setupMcMmo() {
 public MConfiguration config() {
 	return config;
 }
-
+public void writeLog(String text) {
+    McLevelUp.log.info(text);
+}
 }
