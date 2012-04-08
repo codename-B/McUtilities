@@ -52,7 +52,7 @@ public class GodSignListener implements Listener {
 								int cost = Integer.parseInt(s.getLine(2)
 											.replaceAll("\\$", "0"));							
 								// Makes sure player has enough money
-								if(!mcMMO.getPlayerProfile(player).getGodMode()) {
+								if(mcMMO.getPlayerProfile(player).getGodMode() == true) {
 								if (balance >= cost) {
 									e.setCancelled(true);
 									mcMMO.getPlayerProfile(player).toggleGodMode();
@@ -93,7 +93,7 @@ public class GodSignListener implements Listener {
 								e.setCancelled(true);
 								int time = Integer.parseInt(s.getLine(1).replace("seconds", ""));
 								player.sendMessage(ChatColor.RED 
-										+ "You are already in godmode! Wait " + time + " sec. to rebuy");
+										+ "Already in godmode, wait " + time + " seconds for it to wear");
 						}
 							} else {
 								// Player does have permission to use the sign
