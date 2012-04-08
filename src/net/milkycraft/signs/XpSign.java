@@ -1,7 +1,5 @@
 package net.milkycraft.signs;
 
-import java.util.regex.Pattern;
-
 import net.milkycraft.McLevelUp;
 
 import org.bukkit.ChatColor;
@@ -14,7 +12,6 @@ import org.bukkit.event.block.SignChangeEvent;
 
 public class XpSign implements Listener {
 	McLevelUp plugin;
-	private static String line = "[LevelUp]";
 	public XpSign(McLevelUp instance) {
 		plugin = instance;
 	}
@@ -28,7 +25,7 @@ public class XpSign implements Listener {
 				"EXCAVATION", "FISHING", "HERBALISM", "MINING", "REPAIR",
 				"SWORDS", "TAMING", "UNARMED", "WOODCUTTING" };
 		if (e.getBlock().getState() instanceof Sign) {
-			if (e.getLine(0).equalsIgnoreCase(line)) {
+			if (e.getLine(0).equalsIgnoreCase("[LevelUp]")) {
 				// checks if 1st line on sign is [levelup] in any case
 				if (p.hasPermission("mcutils.create.xp")
 						|| p.hasPermission("mcutils.create.*")) { 	
@@ -42,16 +39,6 @@ public class XpSign implements Listener {
 						p.sendMessage(ChatColor.RED
 								+ "Line 3 should be a number!");
 						lino = false;
-					}
-				}
-				boolean lina = false;
-				if (!e.getLine(3).isEmpty()) {
-					try {
-						Integer.parseInt(e.getLine(4).toString().replaceAll(Pattern.quote("$"), ""));
-					} catch (Exception ex) {
-						p.sendMessage(ChatColor.RED
-								+ "Line 4 should be a number!");
-						lina = true;
 					}
 				}
 								
@@ -93,12 +80,12 @@ public class XpSign implements Listener {
 					 * Line 3 to contain a integer					 
 					 */
 					if (!e.getLine(1).isEmpty() && !e.getLine(2).isEmpty()
-							&& !e.getLine(3).isEmpty() && lino && derp && lina) {
+							&& !e.getLine(3).isEmpty() && lino && derp) {
 						p.sendMessage(ChatColor.GREEN
 								+ " Sucessfully created a level up sign");
 						if(derp && lino) {
 						String CappedSkill = Character.toUpperCase(e.getLine(1).charAt(0)) + e.getLine(1).substring(1);
-						e.setLine(0, line);
+						e.setLine(0, "[LevelUp]");
 						e.setLine(1, CappedSkill);
 						return;
 						}
@@ -114,7 +101,7 @@ public class XpSign implements Listener {
 			e.getPlayer()
 			.sendMessage(
 					ChatColor.RED 
-							+ " You do not have permission to create" + line + " signs");
+							+ " You do not have permission to create [LevelUp] signs");
 			return;
 		}
 		}
