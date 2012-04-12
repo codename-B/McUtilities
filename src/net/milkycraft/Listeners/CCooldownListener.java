@@ -14,8 +14,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.gmail.nossr50.mcMMO;
-
 public class CCooldownListener implements Listener {
 	private static String line = "[McCooldown]";
 	McLevelUp plugin;
@@ -45,7 +43,7 @@ public class CCooldownListener implements Listener {
 					if (player.hasPermission("mcutils.buy.cooldown") ||
 							player.hasPermission("mcutils.buy.*")) {
 						e.setCancelled(true);
-						mcMMO.getPlayerProfile(player).resetCooldowns();
+						plugin.getPlayerProfile(player).resetCooldowns();
 						player.sendMessage(ChatColor.GREEN
 								+ "Reset all of your ability cooldowns!");
 						if (!player
