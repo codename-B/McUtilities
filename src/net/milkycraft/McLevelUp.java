@@ -16,13 +16,17 @@ import net.milkycraft.signs.CoolDownSign;
 import net.milkycraft.signs.GodSign;
 import net.milkycraft.signs.XpSign;
 
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
-import com.gmail.nossr50.mcMMO;
+
+import com.gmail.nossr50.Users;
+import com.gmail.nossr50.datatypes.PlayerProfile;
+import com.gmail.nossr50.skills.Skills;
 
 public class McLevelUp extends Wrapper {
 	private MConfiguration config;
-	public static mcMMO mcmmo = null;
+	public static Skills skillz = null;
 	public static Economy econ = null;
 	public static Logger log = Logger.getLogger("Minecraft");
 	private XpSign xpListener = new XpSign(this);
@@ -54,7 +58,7 @@ public class McLevelUp extends Wrapper {
 		} catch (IOException e) {
 			writeLog(e.getMessage());
 		}		
-		writeLog("[MCU]Metrics loaded!");
+		writeLog("[McUtilities] Metrics loaded!");
 }
 @Override
 public void onDisable() {
@@ -100,7 +104,7 @@ private void setupMcMmo() {
 	if (wg == null) {
 		log.info("[McUtilities] mcMMO not detected, plugin disabling");
 	} else {
-		McLevelUp.mcmmo = (mcMMO) mcmmo;
+		McLevelUp.skillz = (Skills) skillz;
 		log.info("[McUtilities] Hooked into mcMMO!");
 	}
 }
@@ -109,5 +113,8 @@ public MConfiguration config() {
 }
 public void writeLog(String text) {
     McLevelUp.log.info(text);
+}
+public PlayerProfile getPlayerProfile(Player player) {
+    return Users.getProfile(player);
 }
 }
