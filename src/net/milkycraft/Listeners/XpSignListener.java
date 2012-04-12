@@ -14,12 +14,13 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.gmail.nossr50.mcMMO;
 import com.gmail.nossr50.datatypes.SkillType;
+import com.gmail.nossr50.skills.Skills;
 
 public class XpSignListener implements Listener {
 	McLevelUp plugin;
 	private static String line = "[LevelUp]";
+	
 	public XpSignListener(McLevelUp instance) {
 		plugin = instance;
 	}
@@ -85,16 +86,16 @@ public class XpSignListener implements Listener {
 								// Makes sure player has enough money
 								if (balance >= cost) {
 									e.setCancelled(true);
-									mcMMO.getPlayerProfile(player)
-											.addXPOverrideNoBonus(
+									plugin.getPlayerProfile(player).addXPOverrideBonus(
 													SkillType.valueOf(s
 															.getLine(1)
 															.toUpperCase()),
 													Integer.valueOf(s
 															.getLine(2)
 															.replace("xp", "")));
-									mcMMO.checkXp(player, SkillType.valueOf(s
-											.getLine(1).toUpperCase()));
+									Skills.XpCheckSkill(SkillType.valueOf(s
+											.getLine(1)
+											.toUpperCase()), player);
 									player.sendMessage(ChatColor.GREEN
 											+ "Successfully Bought "
 											+ s.getLine(2).replace("xp", "")

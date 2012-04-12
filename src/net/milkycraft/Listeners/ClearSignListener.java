@@ -14,8 +14,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.gmail.nossr50.mcMMO;
-
 public class ClearSignListener implements Listener {
 	private static String line = "[McReset]";
 	McLevelUp plugin;
@@ -43,8 +41,8 @@ public class ClearSignListener implements Listener {
 				if (s.getLine(0).equalsIgnoreCase(line)) {
 					if (player.hasPermission("mcutils.buy.reset")) {
 						e.setCancelled(true);
-						mcMMO.getPlayerProfile(player).resetAllData();
-						mcMMO.getPlayerProfile(player).save();
+						plugin.getPlayerProfile(player).resetAllData();
+						plugin.getPlayerProfile(player).save();
 						player.sendMessage(ChatColor.GREEN
 								+ "Reset all of your mcMMO skills!");
 						return;

@@ -14,11 +14,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import com.gmail.nossr50.mcMMO;
-
 public class GodSignListener implements Listener {
 	McLevelUp plugin;
-	private static String line = "[McGod]";
 	public GodSignListener(McLevelUp instance) {
 		plugin = instance;
 	}
@@ -41,8 +38,9 @@ public class GodSignListener implements Listener {
 				BlockState state = e.getClickedBlock().getState();
 				final Sign s = (Sign) state;
 				final Player player = e.getPlayer();	
-				if (s.getLine(0).equalsIgnoreCase(line)) {
+				if (s.getLine(0).equalsIgnoreCase("[McGod]")) {
 					if (!s.getLine(1).isEmpty() && !s.getLine(2).isEmpty()) {
+						// Permissions check
 							if (player.hasPermission("mcutils.buy.godmode")
 									|| player.hasPermission("mcutils.buy.*")) {
 								int time = Integer.parseInt(s.getLine(1).replace("seconds", ""));
@@ -51,11 +49,18 @@ public class GodSignListener implements Listener {
 										.getPlayer().getName());
 								int cost = Integer.parseInt(s.getLine(2)
 											.replaceAll("\\$", "0"));							
-								// Makes sure player has enough money
-								if(mcMMO.getPlayerProfile(player).getGodMode() == true) {
+								//  Godmode check
+								if(plugin.getPlayerProfile(player).getGodMode() != true) {
+								} else {
+										e.setCancelled(true);
+										player.sendMessage(ChatColor.RED 
+												+ "Already in godmode, wait for it to wear off");
+										return;
+								}
+								// Balance check
 								if (balance >= cost) {
 									e.setCancelled(true);
-									mcMMO.getPlayerProfile(player).toggleGodMode();
+									plugin.getPlayerProfile(player).toggleGodMode();
 									player.sendMessage(ChatColor.YELLOW 
 											+ "God mode enabled for " + time + " seconds");
 									plugin.getServer()
@@ -64,11 +69,12 @@ public class GodSignListener implements Listener {
 											plugin, new Runnable() {
 												@Override
 												public void run() {
-													mcMMO.getPlayerProfile(player).toggleGodMode();
+													plugin.getPlayerProfile(player).toggleGodMode();
 													player.sendMessage(ChatColor.RED 
 															+ "God mode has warn out!");
 												}
 											}, longtime);
+									// Eco bypass check
 									if (!player
 											.hasPermission("mcutils.bypass.charge")) {
 										McLevelUp.econ
@@ -87,20 +93,14 @@ public class GodSignListener implements Listener {
 									e.setCancelled(true);
 									player.sendMessage(ChatColor.RED
 											+ "Insufficient funds!");
-								}
-								}
-							} else {
-								e.setCancelled(true);
-								int time = Integer.parseInt(s.getLine(1).replace("seconds", ""));
-								player.sendMessage(ChatColor.RED 
-										+ "Already in godmode, wait " + time + " seconds for it to wear");
-						}
+								} 
 							} else {
 								// Player does have permission to use the sign
 								// they are trying to use
 								e.setCancelled(true);
-								player.sendMessage(ChatColor.RED  + "You dont have permission for " + line + " signs");
-						} 						
+								player.sendMessage(ChatColor.RED  + "You dont have permission for [McGod] signs");
+							}
+							}
 				}
 			}
 		}
